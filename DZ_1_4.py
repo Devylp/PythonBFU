@@ -16,6 +16,8 @@ class Example(QMainWindow):
 
         self.x_pos = 700
         self.y_pos = 500
+        self.order_list = []
+        self.output_text = "Пока заказ не сделан."
 
         self.setGeometry(1920//2, 1080//2, self.x_pos, self.y_pos)
         self.setWindowTitle('Заказ в McDonald’s')
@@ -64,17 +66,33 @@ class Example(QMainWindow):
         self.check_box_cola.move(50, 110)
 
         # Order output window
-
+        self.order_output_window = QPlainTextEdit(self)
+        self.order_output_window.setFixedSize(250, 250)
+        self.order_output_window.setPlainText(self.output_text)
+        self.order_output_window.move(50, 190)
 
         self.order_status = {
-            self.check_box_chs.isChecked(): "Чизбургер",
-            self.check_box_gmb.isChecked(): "Гамбургер",
-            self.check_box_nug.isChecked(): "Нагетсы",
-            self.check_box_cola.isChecked(): "Кока-кола"
+            self.check_box_chs: "Чизбургер",
+            self.check_box_gmb: "Гамбургер",
+            self.check_box_nug: "Нагетсы",
+            self.check_box_cola: "Кока-кола"
         }
 
-    def output_order(self):
+        self.button.clicked.connect(self.output_order)
 
+    def output_order(self):
+        self.order_list = []
+
+        for key in self.order_status:
+            if key.isChecked():
+                self.order_list.append(self.order_status[key])
+
+        if self.order_list:
+            self.output_text = "Ваш заказ:\n\n" + "\n".join(self.order_list)
+        else:
+            self.output_text = "Вы ничего не выбрали."
+
+        self.order_output_window.setPlainText(self.output_text)
 
 
 
