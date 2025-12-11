@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета отправлена</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .success-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+        .data-container {
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .data-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .data-label {
+            font-weight: bold;
+            color: #666;
+        }
+        .data-value {
+            color: #333;
+            margin-top: 5px;
+        }
+        .back-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <h1>✅ Анкета успешно отправлена!</h1>
+        <p>Спасибо за ваш интерес к миссии на Марс. Ваши данные:</p>
+
+        <div class="data-container">
+            <div class="data-item">
+                <div class="data-label">Фамилия:</div>
+                <div class="data-value">{{ surname }}</div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label">Имя:</div>
+                <div class="data-value">{{ name }}</div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label">Email:</div>
+                <div class="data-value">{{ email }}</div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label">Образование:</div>
+                <div class="data-value">{{ education }}</div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label">Профессия:</div>
+                <div class="data-value">{{ profession }}</div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label">Пол:</div>
+                <div class="data-value">{{ gender }}</div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label">Мотивация:</div>
+                <div class="data-value">{{ motivation }}</div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label">Готовность остаться на Марсе:</div>
+                <div class="data-value">{{ stay_on_mars }}</div>
+            </div>
+        </div>
+
+        <p>Мы рассмотрим вашу анкету и свяжемся с вами в ближайшее время.</p>
+        <a href="/" class="back-btn">Заполнить новую анкету</a>
+    </div>
+</body>
+</html>
